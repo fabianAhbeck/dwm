@@ -32,8 +32,11 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "St",       NULL,       NULL,       1,            0,           -1 },
+	{ "firefox",  NULL,       NULL,       2,            0,           -1 },
+	{ "Steam",    NULL,       NULL,       3,            0,           -1 },
+	{ "discord",  NULL,       NULL,       4,            0,           -1 },
+	{ "vlc",      NULL,       NULL,       5,            0,           -1 },
 };
 
 /* layout(s) */
@@ -108,6 +111,12 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+    /* application keybindings */
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("pavucontrol") },
+	{ MODKEY|ControlMask,           XK_w,      spawn,          SHCMD("firefox") },
+	{ MODKEY|ControlMask,           XK_d,      spawn,          SHCMD("discord") },
+	{ MODKEY|ControlMask,           XK_s,      spawn,          SHCMD("steam") },
+	{ MODKEY|ControlMask,           XK_m,      spawn,          SHCMD("vlc") },
 };
 
 /* button definitions */
